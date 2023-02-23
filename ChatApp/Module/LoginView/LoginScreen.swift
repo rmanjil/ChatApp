@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginScreen: View {
     @StateObject var viewModel = LoginViewModel()
     @State var isAlert = false
+    @State var isLoading = false
     @State var message = ""
     
     var body: some View {
@@ -37,23 +38,31 @@ struct LoginScreen: View {
             Spacer()
         }
         .padding()
+        .activityIndictor(isLoading: $isLoading)
         .navigationTitle("Login")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.inline).toolbar(content: {
+            NavigationLink(destination: EmptyView()) {
+                Text("Sign Up")
+            }
+        })
         .background {
             Color.white
         }
         .alert(isPresented: $isAlert) {
-            Alert(title: Text("pkt fuel"), message: Text(message))
+            Alert(title: Text("chat"), message: Text(message))
         }
     }
     
     private func loginAction() {
+        hideKeyboard()
         if let error = viewModel.error.first as? AppError {
             message = error.localizedDescription
             isAlert = true
             return
         }
+        isLoading = true
         viewModel.login { error in
+            isLoading = false
             if let  error = error {
                 isAlert = true
                 message = error.localizedDescription
