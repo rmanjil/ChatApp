@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0ECAEA29A74EC900B21738 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ECAE929A74EC900B21738 /* AppError.swift */; };
 		2A74532F29A7363800BE6CE1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74532E29A7363800BE6CE1 /* Constant.swift */; };
 		2A9146E029A6143A0067D59F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A9146DF29A6143A0067D59F /* GoogleService-Info.plist */; };
 		2A9146E529A615EC0067D59F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9146E429A615EC0067D59F /* AuthManager.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A0ECAE929A74EC900B21738 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2A74532E29A7363800BE6CE1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2A9146DF29A6143A0067D59F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A9146E429A615EC0067D59F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2A74532E29A7363800BE6CE1 /* Constant.swift */,
+				2A0ECAE929A74EC900B21738 /* AppError.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				2A9146EB29A62EF10067D59F /* TextModel.swift in Sources */,
 				2A9146F329A630290067D59F /* String+Extension.swift in Sources */,
 				2A94247F29A5DD71000954C2 /* ContentView.swift in Sources */,
+				2A0ECAEA29A74EC900B21738 /* AppError.swift in Sources */,
 				2A9146E529A615EC0067D59F /* AuthManager.swift in Sources */,
 				2A9146ED29A62F7B0067D59F /* TextInteractor.swift in Sources */,
 				2A9146F029A62FFE0067D59F /* PatternConformance.swift in Sources */,

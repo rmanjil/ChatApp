@@ -7,22 +7,6 @@
 
 import Foundation
 import Combine 
-public protocol Localie {
-    var value: String { get }
-}
-
-public enum AppError: Error, LocalizedError {
-    case requiredField(Localie)
-    case custom (String)
-    
-    
-   public var localizedDescription: String {
-        switch self {
-        case .requiredField(let error): return error.value
-        case .custom(let error): return "\(error)"
-        }
-    }
-}
 
 public protocol  Plainable {
     var name: String { get }
@@ -55,11 +39,13 @@ enum PlainFieldType: Plainable {
 
 class TextModel: ObservableObject {
     var bag = Set<AnyCancellable>()
-   
+    
     @Published var value: String = ""
     @Published var error: Error? = nil
+    
     let dataType: Plainable
     let interactor: TextFieldInteractable
+    
     init(dataType: PlainFieldType, interactor: TextFieldInteractable = TextInteractor(type: PlainFieldType.none, pattern: Pattern.none, optional: false) ) {
         self.dataType = dataType
         self.interactor  = interactor
@@ -73,7 +59,7 @@ class TextModel: ObservableObject {
     
     func isValid(value: String) {
         error = interactor.isValid(value: value)
-      }
+    }
 }
 
 

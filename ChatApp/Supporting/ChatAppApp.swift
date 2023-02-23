@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct ChatAppApp: App {
@@ -13,11 +14,14 @@ struct ChatAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
+                
                 if isLogin {
                     ContentView()
                 } else {
                     LoginScreen()
                 }
+            }.onAppear {
+                FirebaseApp.configure()
             }
         }
     }

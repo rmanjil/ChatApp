@@ -92,7 +92,7 @@ class TextInteractor: TextFieldInteractable {
         case Pattern.password:
           return  set(value: value, result: regResult, extra: "")
         case Pattern.none:
-            return nil
+            return set(value: value, result: true)
         default:
             assertionFailure("TextInteractor is not capable of validating \(pattern). Please add validating case. \(#function) \(#line)")
            

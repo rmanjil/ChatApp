@@ -11,7 +11,7 @@ import Combine
 class BaseViewModel {
     var bag = Set<AnyCancellable>()
     init() {
-       print("Initialized --> \(String(describing: self))")
+        print("Initialized --> \(String(describing: self))")
     }
     
     deinit {
@@ -25,15 +25,13 @@ class LoginViewModel: BaseViewModel, ObservableObject {
     let passwordTextModel = TextModel(dataType: .password, interactor: TextInteractor(type: PlainFieldType.password, pattern: Pattern.none))
     
     @Published var isSuccess = false
-    // let userManager: UserManager
     
-    var  error = [Error]()
+    var error = [Error]()
+    let authManager = AuthManager()
+    
     override init() {
-        // userManager = UserManager()
         super.init()
-        
         observeValidation()
-        //  observeEvent()
     }
     
     /// Method to observe the validations of the TextFields
@@ -46,20 +44,16 @@ class LoginViewModel: BaseViewModel, ObservableObject {
         }.store(in: &bag)
     }
     
-    
-    //    private func observeEvent() {
-    //        userManager.result.receive(on: RunLoop.main).sink { [weak self] (result) in
-    //            guard let self = self else { return }
-    //            self.isSuccess = result.success
-    //        }.store(in: &bag)
-    //    }
-    //
-    //    func login() {
-    //        let parameter = ["email": emailTextModel.value.trim, "password": passwordTextModel.value.trim]
-    //        userManager.request(router: UserRouter.login(parameter))
-    //    }
-    
-    func  loginSuccess() {
-        isLogin = true 
+    func login(completion: @escaping ((_ error: Error?) -> Void)) {
+        authManager.login(email: emailTextModel.value.trim, password: passwordTextModel.value.trim) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                self.isLogin = true
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
     }
 }

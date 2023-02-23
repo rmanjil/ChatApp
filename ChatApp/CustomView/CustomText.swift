@@ -16,7 +16,7 @@ struct CustomText: View {
     var body: some View {
         Group {
             HStack {
-                Color.white.frame(width: 16)
+                Color.white.frame(width: 2)
                 if isSecure {
                     SecureTextField(name: title, binder: $model.value)
                 } else  {

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginScreen: View {
     @StateObject var viewModel = LoginViewModel()
+    @State var isAlert = false
+    @State var message = ""
     
     var body: some View {
         VStack(spacing: 16) {
@@ -19,11 +21,11 @@ struct LoginScreen: View {
                 .padding(8)
             CustomText(title: "Email", binder: viewModel.emailTextModel, contentType: .emailAddress)
                 .keyboardType(.emailAddress)
+                .autocapitalization(.none)
             CustomText(title: "Password", isSecure: true, binder: viewModel.passwordTextModel)
+                .autocapitalization(.none)
             
-            Button(action: {
-                viewModel.loginSuccess()
-            }, label: {
+            Button(action: loginAction, label: {
                 Text("LOG IN")
                     .frame(maxWidth: .infinity, minHeight: 40)
                     .foregroundColor(Color.white)
@@ -39,6 +41,23 @@ struct LoginScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .background {
             Color.white
+        }
+        .alert(isPresented: $isAlert) {
+            Alert(title: Text("pkt fuel"), message: Text(message))
+        }
+    }
+    
+    private func loginAction() {
+        if let error = viewModel.error.first as? AppError {
+            message = error.localizedDescription
+            isAlert = true
+            return
+        }
+        viewModel.login { error in
+            if let  error = error {
+                isAlert = true
+                message = error.localizedDescription
+            }
         }
     }
 }
