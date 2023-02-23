@@ -15,10 +15,13 @@ struct CustomText: View {
     
     var body: some View {
         Group {
-            if isSecure {
-                SecureTextField(name: title, binder: $model.value)
-            } else  {
-                TextField(title, text: $model.value).textContentType(contentType)
+            HStack {
+                Color.white.frame(width: 16)
+                if isSecure {
+                    SecureTextField(name: title, binder: $model.value)
+                } else  {
+                    TextField(title, text: $model.value).textContentType(contentType)
+                }
             }
         }
         .foregroundColor(.black)

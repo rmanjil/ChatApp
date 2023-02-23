@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct ChatAppApp: App {
+    @AppStorage(CacheKey.isLogin.rawValue) private var isLogin = false
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                LoginScreen()
+                if isLogin {
+                    ContentView()
+                } else {
+                    LoginScreen()
+                }
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A74532F29A7363800BE6CE1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74532E29A7363800BE6CE1 /* Constant.swift */; };
 		2A9146E029A6143A0067D59F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A9146DF29A6143A0067D59F /* GoogleService-Info.plist */; };
 		2A9146E529A615EC0067D59F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9146E429A615EC0067D59F /* AuthManager.swift */; };
 		2A9146E829A62AD10067D59F /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9146E729A62AD10067D59F /* CustomText.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A74532E29A7363800BE6CE1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2A9146DF29A6143A0067D59F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A9146E429A615EC0067D59F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		2A9146E729A62AD10067D59F /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A74532D29A7361F00BE6CE1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2A74532E29A7363800BE6CE1 /* Constant.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		2A9146E129A6157F0067D59F /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 		2A94247B29A5DD71000954C2 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				2A74532D29A7361F00BE6CE1 /* Helper */,
 				2A9146F129A630140067D59F /* Extension */,
 				2A9146EE29A62FE90067D59F /* Protocol */,
 				2A9146E929A62EC70067D59F /* Interactor */,
@@ -377,6 +388,7 @@
 				2A94247D29A5DD71000954C2 /* ChatAppApp.swift in Sources */,
 				2A9424AA29A5E0F0000954C2 /* LoginScreen.swift in Sources */,
 				2A9146E829A62AD10067D59F /* CustomText.swift in Sources */,
+				2A74532F29A7363800BE6CE1 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

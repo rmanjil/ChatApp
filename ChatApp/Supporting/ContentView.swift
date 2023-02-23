@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(CacheKey.isLogin.rawValue) private var isLogin = false
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            Button("LOG OUT") {
+                isLogin = false
+            }
         }
         .padding()
     }
